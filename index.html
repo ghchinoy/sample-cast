@@ -22,7 +22,8 @@
 
 		receiver.start();
 
-		channelHandler.addEventListener(cast.receiver.Channel.EventType.MESSAGE,
+		channelHandler.addEventListener(
+			cast.receiver.Channel.EventType.MESSAGE,
 			onMessage.bind(this));
 
 		function onMessage(event) {
@@ -30,7 +31,7 @@
 			var html = "";
 			html += "<p>Name: " + event.message.name + "</p>";
 			html += "<p>Email: " + event.message.email + "</p>";
-			html += "<p>Favorite song: " + event.message.favorite + "</p>";
+			//html += "<p>Favorite song: " + event.message.favorite + "</p>";
 
 			$messages.html(event.message.type);
 			// do something with event.message.randomWord

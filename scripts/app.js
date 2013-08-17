@@ -27,7 +27,7 @@ function init(version_array) {
 	//$scope.castVersion = version_array[0] + "." + version_array[1];
 	// Once validated as a sender page, populate the @cast object
 	cast_api  = new cast.Api();
-	// Find all cast devices
+	// Find all cast devices (anything that can YouTube)
 	cast_api.addReceiverListener("YouTube", onReceiverList);
 
 	$('.btn.btn-success').show().on('click', function() {
@@ -77,18 +77,6 @@ function sendSomethingToReceiver(receiver) {
 
 	cast_api.launch(request, onLaunch);
 }
-
-// Example launch
-var doLaunch = function(receiver) {
-	var request = new cast.LaunchRequest("YouTube", receliver);
-
-	request.parameters = "v=abcdefg";
-	request.description = new cast.LaunchDescription();
-	request.description.text = "My Cat Video";
-	request.description.url = "...";
-	cast_api.launch(request, onLaunch);
-}
-
 
 var onLaunch = function(activity) {
 	console.log('Launch callback');
