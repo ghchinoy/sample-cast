@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html data-cast-api-enabled="true">
+<head>
+	<title>Bespoke Google Cast Demo</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="page-header">
+		<h3>Bespoke Google Cast Demo</h3>
+	</div>
+
+	<form class="form-horizontal">
+	<p>
+		<legend>Fields to post to receiver app on the Chromecast</legend>
+		<div class="control-group">
+			<label class="control-label" for="name">Name</label>
+			<div class="controls">
+			<input type="text" id="name" placeholder="Enter name here" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="email">E-Mail</label>
+			<div class="controls">
+			<input type="text" id="email" placeholder="Enter your e-mail here" />
+			</div>
+		</div>
+
+	</p>
+	</form>
+
+	<form class="form-horizontal">
+	<p>
+		<legend>Available Chromecasts near you:</legend>
+		<ul class="receivers"></ul>
+	</p>
+	</form>
+
+	<div class="btn btn-success" style="display:none;">Send to Chromecast</div>
+
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="http://underscorejs.org/underscore-min.js"></script>
+	<script type="text/javascript" src="scripts/app.js"></script>
+</body>
+</html>
