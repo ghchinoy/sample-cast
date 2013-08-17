@@ -70,6 +70,7 @@ function sendSomethingToReceiver(receiver) {
 	sending = true;
 	console.log('Sending launch request');
 
+	// my custom whitelisted chromecast
 	var request = new cast.LaunchRequest('374051c9-2c57-486f-948e-25e7ef2be1da', receiver);
 	request.description = new cast.LaunchDescription();
 	request.description.text = "Hello, GDG Northern Colorado!";

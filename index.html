@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Bespoke Receiver App</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
 </head>
-<body>
-	<div class="messages">
+<body style="background-color: cadetblue">
+	<div class="messages container">
 		<h1>Waiting for messages...</h1>
 	</div>
 	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
@@ -36,11 +37,13 @@
 			$messages.html(event.message.type);
 			// do something with event.message.randomWord
 			$messages.append(html);
-			
+
+			/*			
 			setTimeout(function() {
 				//closes back to main screen
 				window.close();
 			}, 5000);
+			*/
 		}
 	});
 	</script>
