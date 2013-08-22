@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Bespoke Receiver App</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+</head>
+<body style="background-color: cadetblue">
+	<div class="messages container">
+		<h1>Waiting for messages...</h1>
+	</div>
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="http://underscorejs.org/underscore-min.js"></script>
+	<script src="https://www.gstatic.com/cast/js/receiver/1.0/cast_receiver.js"></script>
+	<script>
+	$(function() {
+		var namespace = "BESPOKE-GDG-GOOGLECAST-DEMO";
+		var receiver = new cast.receiver.Receiver('374051c9-2c57-486f-948e-25e7ef2be1da', [namespace]),
+			channelHandler = new cast.receiver.ChannelHandler(namespace),
+			$messages = $('.messages');
+		
+		channelHandler.addChannelFactory(
+			receiver.createChannelFactory(namespace));
+
+		receiver.start();
+
+		channelHandler.addEventListener(
+			cast.receiver.Channel.EventType.MESSAGE,
+			onMessage.bind(this));
+
+		function onMessage(event) {
+
+			var html = "";
+			html += "<p>Name: " + event.message.name + "</p>";
+			html += "<p>Email: " + event.message.email + "</p>";
+			//html += "<p>Favorite song: " + event.message.favorite + "</p>";
+
+			$messages.html(event.message.type);
+			// do something with event.message.randomWord
+			$messages.append(html);
+
+			setTimeout(function() {
+				//closes back to main screen
+				window.close();
+			}, 5000);
+		}
+	});
+	</script>
+</body>
+</html>
+
